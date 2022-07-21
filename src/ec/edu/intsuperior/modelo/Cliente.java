@@ -9,20 +9,25 @@ package ec.edu.intsuperior.modelo;
  *
  * @author elian
  */
-public class Cliente {
+public class Cliente extends Persona {
 
-    Persona persona = new Persona();
-    String telefono_contacto;
+    String cliTelefono;
 
-    public String getTelefono_contacto() {
-        return telefono_contacto;
+    public Cliente() {
     }
 
-    public void setTelefono_contacto(String telefono_contacto) {
-        this.telefono_contacto = telefono_contacto;
+    public String getCliTelefono() {
+        return cliTelefono;
     }
 
-    public String mostrar(String nombre, int edad, String telefono_contacto) {
-        return persona.mostrar(nombre, edad) + " " + telefono_contacto;
+    public void setCliTelefono(String cliTelefono) {
+        this.cliTelefono = cliTelefono;
+    }
+
+    public void mostrar(Persona persona, String cliTelefono) {
+        System.out.println("Los datos del cliente son:");
+        System.out.println("Nombre: " + persona.getPerNombre());
+        System.out.println("Edad: " + persona.getPerEdad());
+        System.out.println("Telefono: " + cliTelefono);
     }
 }

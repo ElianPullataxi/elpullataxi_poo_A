@@ -10,54 +10,58 @@ import java.util.Scanner;
 public class Aplicacion {
 
     public static void main(String[] args) {
-        /* ========== OBJETOS ========== */
-        Scanner sn = new Scanner(System.in);
-        Persona persona = new Persona();
-        Cliente cliente = new Cliente();
-        Empleado empleado = new Empleado();
-        Directivo directivo = new Directivo();
-        Empresa empresa = new Empresa();
+        /*========== objetos ==========*/
+        Scanner sc = new Scanner(System.in);
+        Persona perEmp = new Persona();
+        Persona perCli = new Persona();
+        Cliente cli = new Cliente();
+        Directivo dir = new Directivo();
+        Empresa emp = new Empresa();
 
-        /* ========== VARIABLES ========== */
-        System.out.println("INGRESE EL TELEFONO DE CONTACTO DEL CLIENTE");
-        String telefonoCliente = sn.next();
-        cliente.setTelefono_contacto(telefonoCliente);
-        System.out.println("INGRESE EL NOMBRE DEL CLIENTE DE LA PERSONA");
-        String nombreCliente = sn.next();
-        System.out.println("INGRESE LA EDAD DEL CLIENTE");
-        Integer edadCliente = sn.nextInt();
-        System.out.println("INGRESE EL NOMBRE DEL EMPLEADO");
-        String nombreEmpleado = sn.next();
-        System.out.println("INGRESE LA EDAD DEL EMPLEADO");
-        Integer edadEmpleado = sn.nextInt();
-        System.out.println("INGRESE EL SUELDO DEL EMPLEADO");
-        Integer sueldoEmpleado = sn.nextInt();
-        System.out.println("INGRESE EL NOMBRE DE LA EMPRESA");
-        String nombreEmpresa = sn.next();
-
-        System.out.println("===================");
-        System.out.println(cliente.mostrar(nombreCliente, edadCliente, telefonoCliente));
-        System.out.println(empleado.mostrar(nombreEmpleado, edadEmpleado, sueldoEmpleado));
-        System.out.println(empleado.mostrar(nombreEmpleado, edadEmpleado, sueldoEmpleado));
-        System.out.println(empresa.mostrar(nombreEmpresa));
-        System.out.println("===================");
-//
-//        persona.getNombre();
-//        persona.getEdad();
-//        persona.setNombre("Elian");
-//        persona.setEdad(18);
-//        persona.mostrar("Elian", 18);
-//        cliente.getTelefono_contacto();
-//        cliente.setTelefono_contacto("0987963202");
-//        cliente.mostrar("Alan", 58, "0987963202");
-//        empleado.getSueldo_bruto();
-//        empleado.setSueldo_bruto(Double.MIN_NORMAL);
-//        empleado.mostrar("David", 18, 1500);
-//        directivo.getCategoria();
-//        directivo.setCategoria("Administrador");
-//        directivo.mostrar("Erik", 45, 2600, "Administrador");
-//        empresa.getNombre();
-//        empresa.getNombre();
-//        empresa.mostrar("Lego");
+        /*========== VARIABLES ==========*/
+        String empNombres, dirCartegoria, empreNombre;
+        int empEdad, empDias, empHoras;
+        String cliNombres, cliTelefono;
+        int cliEdad;
+        /*========== LOGICA EMPLEADOS ==========*/
+        System.out.println("Ingrese los datos de la empresa");
+        System.out.println("Nombre de la empresa:");
+        empreNombre = sc.next();
+        if (empreNombre != null) {
+            System.out.println("Ingrese los datos del empleado de la empresa " + empreNombre);
+            System.out.println("Nombre:");
+            empNombres = sc.next();
+            System.out.println("Edad:");
+            empEdad = sc.nextInt();
+            perEmp.setPerNombre(empNombres);
+            perEmp.setPerEdad(empEdad);
+            System.out.println("Categoria:");
+            dirCartegoria = sc.next();
+            System.out.println("Dias trabajados:");
+            empDias = sc.nextInt();
+            System.out.println("Horas trabajados trabajadas en " + empDias + " dias:");
+            empHoras = sc.nextInt();
+            /*========== MOSTRAR EMPLEADO ==========*/
+            System.out.println("======================================");
+            dir.mostrar(perEmp, empDias, empHoras, dirCartegoria);
+            System.out.println("======================================");
+            /*========== LOGICA CLIENTES ==========*/
+            System.out.println("Ingrese los datos del cliente que visita " + empreNombre);
+            System.out.println("Nombre:");
+            cliNombres = sc.next();
+            System.out.println("Edad:");
+            cliEdad = sc.nextInt();
+            System.out.println("Telefono:");
+            cliTelefono = sc.next();
+            perCli.setPerNombre(cliNombres);
+            perCli.setPerEdad(cliEdad);
+            /*========== MOSTRAR CLIENTE ==========*/
+            System.out.println("======================================");
+            cli.mostrar(perCli, cliTelefono);
+            System.out.println("======================================");
+        } else {
+            System.out.println("NO EXISTE LA EMPRESA");
+        }
     }
+
 }

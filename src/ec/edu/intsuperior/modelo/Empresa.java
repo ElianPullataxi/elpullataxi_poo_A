@@ -8,20 +8,17 @@ package ec.edu.intsuperior.modelo;
 
 public class Empresa {
 
-    String nombre;
+    String empNombre;
 
     public Empresa() {
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getEmpNombre() {
+        return empNombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setEmpNombre(String empNombre) {
+        this.empNombre = empNombre;
     }
 
-    public String mostrar(String nombre) {
-        return nombre;
-    }
 }
